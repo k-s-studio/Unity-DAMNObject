@@ -42,12 +42,12 @@ namespace Assets.KsCode.DAMNObject.v1 {
         /// </summary>
         /// <param name="parent"></param>
         /// <returns></returns>
-        protected (Transform node, IEnumerable<(object id, Component comp)> lst) ToGameObject(Transform parent = null) {
-            Transform node = new GameObject(name).transform;
-            if (parent != null) node.SetParent(parent);
+        protected (GameObject node, IEnumerable<(object id, Component comp)> lst) ToGameObject(GameObject parent = null) {
+            GameObject node = new(name);
+            if (parent != null) node.transform.SetParent(parent.transform);
             return (
                 node,
-                components.Select(e => (e.id, node.gameObject.AddComponent(e.type))).
+                components.Select(e => (e.id, node.AddComponent(e.type))).
                     Concat(children.SelectMany(c => c.ToGameObject(node).lst))
             );
         }
