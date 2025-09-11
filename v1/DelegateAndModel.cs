@@ -15,10 +15,7 @@ namespace Assets.KsCode.DAMNObject.v1 {
 
     [Serializable]
     public class DamnModel : ModelChild {
-        //[SerializeField][HideInInspector] private Spine m_GameObjectCache;
-        public DamnModel(string n = "GameObject") : base(n) {
-            //m_GameObjectCache = null;
-        }
+        public DamnModel(string n = "GameObject") : base(n) { }
         public DAMNObject Instantiate(DamnConfig config = null) {
             var (root, lst) = ToGameObject();
             var damnObject = root.gameObject.AddComponent<DAMNObject>();
@@ -38,7 +35,6 @@ namespace Assets.KsCode.DAMNObject.v1 {
             name = n;
             components = new();
             children = new();
-            // m_GameObjectCache = null;
         }
 
         /// <summary>

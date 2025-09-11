@@ -19,20 +19,11 @@ namespace Assets.KsCode.DAMNObject.v1.Editor {
             }
 
             DamnModel target = (DamnModel)fieldInfo.GetValue(property.serializedObject.targetObject);
-            //container.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
 
             ObjectField container = new(property.displayName);
             container.AddToClassList("unity-base-field__aligned");
             container.ElementAt(0).AddToClassList("unity-property-field__label");
             container.RemoveAt(1);
-
-            // Label label = new(property.displayName);
-            // label.AddToClassList("unity-text-element");
-            // label.AddToClassList("unity-label");
-            // label.AddToClassList("unity-base-field__label");
-            // label.AddToClassList("unity-object-field__label");
-            // label.AddToClassList("unity-property-field__label");
-            // container.Add(label);
 
             Action createAct;
             (string name, ConfigDelegate action)[] lst = m_ConfigsInType[fieldInfo.DeclaringType];
@@ -72,14 +63,8 @@ namespace Assets.KsCode.DAMNObject.v1.Editor {
             if (container.childCount > 1) button.style.maxWidth = 70;
             container.Add(button);
 
-            // PropertyField prop = new(property) { bindingPath = property.propertyPath };
-            // container.Add(prop);
             return container;
         }
-        // public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-        //     position = EditorGUI.PrefixLabel(position, label);
-        //     if (GUI.Button(position, "Create")) (property.managedReferenceValue as Blueprint).ToGameObject();
-        // }
     }
     [CustomPropertyDrawer(typeof(DAMNPrefab))]
     public class DAMNObjectDrawer : PropertyDrawer {

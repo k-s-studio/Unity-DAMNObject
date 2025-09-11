@@ -24,9 +24,6 @@ namespace Assets.KsCode.DAMNObject {
             public Type GetType();
             protected static bool IsValidType(object o) => o is string || o is ValueType;
         }
-        // 其實我想弄個IKey，作為Key的可序列化結構不一定是string基底
-        // 結果實作上會用到的ToString(), constructor, operator等等都不是介面能定義的
-        // 不過好像還是可以做吧?介面的用途並不只對開發者統一接口
     }
     [Serializable]
     public struct KeyString : KeyCompPair.IKey { // To differentiate from string

@@ -13,7 +13,6 @@ namespace Assets.KsCode.DAMNObject.Editor {
         }
         public override void OnInspectorGUI() {
             GUI.enabled = false;
-            //EditorGUILayout.PropertyField(serializedObject.FindProperty("serializeHelperList"));
             foreach (var e in m_Target.Entries)
                 EditorGUILayout.ObjectField(e.Key?.ToString() ?? "null", e.Value, typeof(Component), true);
             GUI.enabled = true;

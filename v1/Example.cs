@@ -120,7 +120,6 @@ internal class Example : MonoBehaviour {
             nameCell.type = dataCell.type = Image.Type.Sliced;
         }
     };
-
     private DAMNObject obj1, obj2;
     void Start() {
         obj1 = damnModel.Instantiate(config);
