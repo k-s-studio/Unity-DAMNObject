@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 namespace Assets.KsCode.DAMNObject.Editor {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(DAMNObject))]
-    public class SpineEditor : UnityEditor.Editor {
+    public class DAMNObjectEditor : UnityEditor.Editor {
         private DAMNObject m_Target;
         public override VisualElement CreateInspectorGUI() {
             m_Target = (DAMNObject)target;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.KsCode.DAMNObject.v1 {
-    using ComponentList = ComponentNode;
+    using ComponentList = CompCollectorIntg;
 
     [Serializable]
     public class DAMNPrefab {
@@ -15,7 +15,10 @@ namespace Assets.KsCode.DAMNObject.v1 {
 
     [Serializable]
     public class DamnModel : ModelChild {
-        public DamnModel(string n = "GameObject") : base(n) { }
+        //[SerializeField][HideInInspector] private Spine m_GameObjectCache;
+        public DamnModel(string n = "GameObject") : base(n) {
+            //m_GameObjectCache = null;
+        }
         public DAMNObject Instantiate(DamnConfig config = null) {
             var (root, lst) = ToGameObject();
             var damnObject = root.gameObject.AddComponent<DAMNObject>();
@@ -35,6 +38,7 @@ namespace Assets.KsCode.DAMNObject.v1 {
             name = n;
             components = new();
             children = new();
+            // m_GameObjectCache = null;
         }
 
         /// <summary>
@@ -47,10 +51,11 @@ namespace Assets.KsCode.DAMNObject.v1 {
             if (parent != null) node.transform.SetParent(parent.transform);
             return (
                 node,
-                components.Select(e => (e.id, node.AddComponent(e.type))).
+                components.Select(e => (e.id, node.gameObject.AddComponent(e.type))).
                     Concat(children.SelectMany(c => c.ToGameObject(node).lst))
             );
         }
-    }    
+    }
+    
     public delegate void DamnConfig(DAMNObject s);
 }
