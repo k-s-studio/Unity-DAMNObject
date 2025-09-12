@@ -2,6 +2,7 @@
 *.unitypackage.meta
 *.md.meta
 /readme/*.meta
+readme.meta
 # Created by https://www.toptal.com/developers/gitignore/api/unity,visualstudiocode,csharp
 # Edit at https://www.toptal.com/developers/gitignore?templates=unity,visualstudiocode,csharp
 
