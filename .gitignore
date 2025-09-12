@@ -1,5 +1,7 @@
 **/beta/
-
+*.unitypackage.meta
+*.md.meta
+/readme/*.meta
 # Created by https://www.toptal.com/developers/gitignore/api/unity,visualstudiocode,csharp
 # Edit at https://www.toptal.com/developers/gitignore?templates=unity,visualstudiocode,csharp
 
@@ -79,7 +81,6 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
 *.obj
 *.iobj
 *.pch
@@ -458,7 +459,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.aab
-*.unitypackage.meta
 *.app
 
 # Crashlytics generated file
